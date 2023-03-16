@@ -9,6 +9,7 @@ function calcFatorial(n) {
 }
 
 const UseEffect = (props) => {
+    const [status, setStatus] = useState('Impar');
     const [number, setNumber] = useState(1);
     const [fatorial, setFatorial] = useState(1);
 
@@ -19,6 +20,14 @@ const UseEffect = (props) => {
     useEffect(() => {
         if (fatorial > 1000000) {
             document.title = "Eita!!!";
+        }
+    }, [fatorial]);
+
+    useEffect(() => {
+        if (fatorial % 2 === 0) {
+            setStatus('Par');
+        } else {
+            setStatus('Impar');
         }
     }, [fatorial]);
 
@@ -39,7 +48,10 @@ const UseEffect = (props) => {
 
              <SectionTitle title="Exercício #02" />
              <div className="center">
-                
+                <div>
+                    <span className="text">Status: </span>
+                    <span className="text red">{status}</span>
+                </div>
              </div>
         </div>
     );
