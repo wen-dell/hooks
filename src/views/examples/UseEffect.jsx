@@ -24,12 +24,8 @@ const UseEffect = (props) => {
     }, [fatorial]);
 
     useEffect(() => {
-        if (fatorial % 2 === 0) {
-            setStatus('Par');
-        } else {
-            setStatus('Impar');
-        }
-    }, [fatorial]);
+        setStatus(number % 2 === 0 ? 'Par' : 'Impar');
+    }, [number]);
 
     return (
         <div className="UseEffect">
